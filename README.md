@@ -1,5 +1,7 @@
 # SoberSteps Landing Page
 
+**[Join the waitlist →](https://soberstepsdev.github.io/sobersteps-landing/)**
+
 Landing page dla SoberSteps — deploy na GitHub Pages.
 
 ## Deploy na GitHub (nowe repo)
@@ -32,6 +34,8 @@ Landing page dla SoberSteps — deploy na GitHub Pages.
 
 5. URL: **https://soberstepsdev.github.io/sobersteps-landing/**
 
-## Waitlist
+## Website
 
-Waitlist (soberstepsdev.github.io/sobersteps) przekierowuje przycisk "Join the waitlist" na ten landing.
+**Live:** https://soberstepsdev.github.io/sobersteps-landing/
+
+Ustaw w GitHub → Settings → About → Website: `https://soberstepsdev.github.io/sobersteps-landing/` — wtedy link w sidebarze przekieruje na landing.
