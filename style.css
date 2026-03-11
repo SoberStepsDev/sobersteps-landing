@@ -94,21 +94,7 @@ body {
 .hero-sub {
   color: var(--muted);
   font-size: 1.15rem;
-  margin-bottom: 2.5rem;
 }
-
-.cta {
-  display: inline-block;
-  padding: 0.9rem 2rem;
-  border-radius: 12px;
-  background: var(--gradient);
-  color: #fff;
-  font-weight: 700;
-  text-decoration: none;
-  transition: opacity 0.2s, transform 0.1s;
-}
-
-.cta:hover { opacity: 0.9; transform: translateY(-2px); }
 
 .features {
   padding: 4rem 2rem;
@@ -153,11 +139,64 @@ body {
   font-size: 0.9rem;
 }
 
-.waitlist {
+/* For whom */
+.for-whom {
+  padding: 4rem 2rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.for-whom h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.75rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.for-whom-content .lead {
+  font-size: 1.15rem;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.for-whom-content ul {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.for-whom-content li {
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  color: var(--muted);
+}
+
+.for-whom-content li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--accent-light);
+}
+
+.for-whom-content .addictions {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* Launch */
+.launch {
   padding: 4rem 2rem;
 }
 
-.waitlist-card {
+.launch h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.75rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.launch-card {
   max-width: 480px;
   margin: 0 auto;
   background: var(--card);
@@ -167,60 +206,127 @@ body {
   text-align: center;
 }
 
-.waitlist-card h2 {
+.launch-date {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
+  font-weight: 700;
   margin-bottom: 0.5rem;
 }
 
-.waitlist-card > p {
+.launch-phrase {
+  color: var(--accent-light);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.launch-desc {
   color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Contact */
+.contact {
+  padding: 4rem 2rem;
+}
+
+.contact h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.75rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.contact-card h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.contact-card a {
+  color: var(--accent-light);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+}
+
+.contact-card span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.contact-note {
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+/* Social */
+.social {
+  padding: 4rem 2rem;
+}
+
+.social h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.75rem;
+  text-align: center;
   margin-bottom: 1.5rem;
 }
 
-.waitlist-card form {
+.social-links {
   display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
-.waitlist-card input[type="email"] {
-  padding: 0.9rem 1.2rem;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: var(--bg);
+.social-links a {
+  color: var(--accent-light);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.social-links a:hover {
   color: var(--text);
-  font-size: 1rem;
-  outline: none;
 }
 
-.waitlist-card input[type="email"]:focus {
-  border-color: var(--accent);
-}
-
-.waitlist-card button[type="submit"] {
-  padding: 0.9rem;
-  border-radius: 12px;
-  border: none;
-  background: var(--gradient);
-  color: #fff;
-  font-weight: 700;
-  cursor: pointer;
-  transition: opacity 0.2s;
-}
-
-.waitlist-card button[type="submit"]:hover { opacity: 0.9; }
-
-.waitlist-card .note {
-  margin-top: 1rem;
-  font-size: 0.78rem;
-  color: var(--muted);
-}
-
+/* Footer */
 .footer {
   padding: 2rem;
   text-align: center;
   color: var(--muted);
   font-size: 0.85rem;
   border-top: 1px solid var(--border);
+}
+
+.footer .disclaimer {
+  max-width: 600px;
+  margin: 0 auto 1rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
 }
