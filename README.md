@@ -1,6 +1,6 @@
 # SoberSteps Landing Page
 
-**[Join the waitlist →](https://soberstepsdev.github.io/sobersteps-landing/#waitlist)**
+**[Join the waitlist →](https://soberstepsdev.github.io/sobersteps-landing/#waitlist)** · [Waitlist page](https://soberstepsdev.github.io/sobersteps/)
 
 Landing page dla SoberSteps — deploy na GitHub Pages.
 
