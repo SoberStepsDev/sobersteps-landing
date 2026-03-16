@@ -4,14 +4,401 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta name="description" content="SoberSteps — Recovery app for substance and behavioral addictions. Sobriety tracking, 3 AM SOS, Craving Surf, Return to Self. Launching March 22, 2026." />
+  <meta name="description" content="SoberSteps — Recovery app for substance and behavioral addictions. Sobriety tracking, 3 AM SOS, Craving Surf, Return to Self. Launching March 29, 2026." />
   <title>SoberSteps — Your Sobriety Companion</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=2" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0c10;
+      --card: #13161d;
+      --border: #1e2330;
+      --text: #e8eaed;
+      --muted: #6b7280;
+      --accent: #6366f1;
+      --accent-light: #818cf8;
+      --gradient: linear-gradient(135deg, #a78bfa, #60a5fa);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(10, 12, 16, 0.9);
+      backdrop-filter: blur(8px);
+    }
+
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .header nav { display: flex; gap: 1.5rem; }
+
+    .header nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .header nav a:hover { color: var(--text); }
+
+    .intro {
+      padding: 4rem 2rem 3rem;
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .intro-tagline {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+
+    .intro h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .intro-philosophy { margin-bottom: 1.5rem; }
+
+    .intro-philosophy .philosophy {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .intro-desc {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .intro-model { color: var(--accent-light); font-size: 0.95rem; }
+
+    .philosophy-section, .patryk-ai {
+      padding: 4rem 2rem;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .philosophy-section h2, .patryk-ai h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .phil-lead, .patryk-lead { text-align: center; color: var(--accent-light); margin-bottom: 1.5rem; }
+    .phil-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+    .phil-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
+    .phil-card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+    .phil-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
+    .patryk-ai p { color: var(--muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem; }
+
+    .features { padding: 4rem 2rem; max-width: 1000px; margin: 0 auto; }
+
+    .features h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+
+    .feature-icon { font-size: 2rem; display: block; margin-bottom: 0.75rem; }
+    .feature-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .feature-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.55; }
+
+    .for-whom { padding: 4rem 2rem; max-width: 720px; margin: 0 auto; }
+
+    .for-whom h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .for-whom-content .lead { font-size: 1.15rem; color: var(--text); margin-bottom: 1.5rem; }
+    .for-whom-content ul { list-style: none; margin-bottom: 1.5rem; }
+    .for-whom-content li { padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: var(--muted); }
+    .for-whom-content li::before { content: "—"; position: absolute; left: 0; color: var(--accent-light); }
+    .for-whom-content p { font-size: 0.95rem; color: var(--muted); line-height: 1.7; }
+
+    .return-to-self { padding: 4rem 2rem; max-width: 1000px; margin: 0 auto; }
+
+    .return-to-self h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .rts-intro {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 2.5rem;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .rts-unlock {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .launch { padding: 4rem 2rem; }
+
+    .launch h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .launch-card {
+      max-width: 480px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      text-align: center;
+    }
+
+    .launch-date {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .launch-phrase { color: var(--accent-light); font-size: 1rem; }
+
+    .contact { padding: 4rem 2rem; }
+
+    .contact h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .contact-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; text-align: center; }
+    .contact-icon { font-size: 1.5rem; display: block; margin-bottom: 0.75rem; }
+    .contact-card h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .contact-card a { color: var(--accent-light); text-decoration: none; font-size: 0.95rem; }
+    .contact-card a:hover { text-decoration: underline; }
+    .contact-card span { display: block; color: var(--muted); font-size: 0.85rem; }
+    .contact-note { font-size: 0.75rem; margin-top: 0.25rem; }
+
+    .waitlist { padding: 4rem 2rem; text-align: center; max-width: 400px; margin: 0 auto; }
+
+    .waitlist h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .waitlist-desc { color: var(--muted); margin-bottom: 1.5rem; }
+
+    .waitlist form { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .waitlist input[type="email"] {
+      padding: 0.9rem 1.2rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    .waitlist input[type="email"]:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .waitlist button[type="submit"] {
+      padding: 0.9rem;
+      border-radius: 12px;
+      border: none;
+      background: var(--gradient);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      font-family: inherit;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .waitlist button[type="submit"]:hover { opacity: 0.88; }
+
+    .waitlist-note { margin-top: 1rem; font-size: 0.8rem; color: var(--muted); }
+
+    .social { padding: 4rem 2rem; }
+
+    .social h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .social-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+    .social-links a { color: var(--accent-light); text-decoration: none; font-weight: 600; transition: color 0.2s; }
+    .social-links a:hover { color: var(--text); }
+
+    .footer {
+      padding: 2rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer .disclaimer { max-width: 600px; margin: 0 auto 1rem; font-size: 0.8rem; line-height: 1.5; }
+
+    /* ── WAITLIST MODAL ── */
+    .wl-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+    .wl-overlay.active { display: flex; }
+
+    .wl-modal {
+      background: #0e0e0e;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      max-width: 360px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      animation: wl-pop .25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes wl-pop {
+      from { transform: scale(0.85); opacity: 0; }
+      to   { transform: scale(1);    opacity: 1; }
+    }
+
+    .wl-modal .wl-icon { font-size: 3rem; line-height: 1; margin-bottom: 1rem; display: block; }
+
+    .wl-modal h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      margin: 0 0 .6rem;
+      color: #fff;
+    }
+
+    .wl-modal p {
+      font-size: .9rem;
+      color: rgba(255,255,255,0.55);
+      margin: 0 0 1.6rem;
+      line-height: 1.5;
+    }
+
+    .wl-modal.error h3 { color: #ff6b6b; }
+
+    .wl-close {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .9rem;
+      font-weight: 600;
+      padding: .65rem 1.8rem;
+      cursor: pointer;
+      transition: background .15s;
+    }
+
+    .wl-close:hover { background: rgba(255,255,255,0.14); }
+
+    .waitlist form button.loading {
+      opacity: .55;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  </style>
 </head>
 <body>
+
+  <!-- ── WAITLIST MODAL ── -->
+  <div class="wl-overlay" id="wlOverlay" role="dialog" aria-modal="true" aria-labelledby="wlTitle">
+    <div class="wl-modal" id="wlModal">
+      <span class="wl-icon" id="wlIcon">✅</span>
+      <h3 id="wlTitle">You're on the list.</h3>
+      <p id="wlMsg">We'll reach out on March 29. No spam — ever.</p>
+      <button class="wl-close" id="wlClose">Got it</button>
+    </div>
+  </div>
+
+  <!-- hidden iframe catches Brevo response, keeps user on page -->
+  <iframe name="wl_hidden_frame" id="wlFrame" style="display:none;" aria-hidden="true"></iframe>
+
   <header class="header">
     <a href="/" class="logo">🧭 SoberSteps</a>
     <nav>
@@ -38,9 +425,14 @@
     <section id="waitlist" class="waitlist">
       <h2>Join the waitlist</h2>
       <p class="waitlist-desc">Be the first to know at launch.</p>
-      <form action="https://78a0c427.sibforms.com/serve/MUIFAHZeZ9QmFQDBXCNZSXN4CDkjorjrov31HEX73X88vm-w13iJ_1uYa8zakxciK7Zr4Evjw0w9AV3iz3lqnexCwGCkNn4Ity_GEeejlbpeHIh16cxozV8savzmEDV3lriN1pNzDP-5E4fVqzAO0jpvT32F_X7gFFiUzshbQE6eya_J5vluqvf_jBZcSq3jrFiXdl2Mirm4FsAK9Q==" method="POST" target="_blank">
-        <input type="email" name="EMAIL" placeholder="Your email" required autocomplete="email" />
-        <button type="submit">Join the waitlist →</button>
+      <form
+        id="wlForm"
+        action="https://78a0c427.sibforms.com/serve/MUIFAHZeZ9QmFQDBXCNZSXN4CDkjorjrov31HEX73X88vm-w13iJ_1uYa8zakxciK7Zr4Evjw0w9AV3iz3lqnexCwGCkNn4Ity_GEeejlbpeHIh16cxozV8savzmEDV3lriN1pNzDP-5E4fVqzAO0jpvT32F_X7gFFiUzshbQE6eya_J5vluqvf_jBZcSq3jrFiXdl2Mirm4FsAK9Q=="
+        method="POST"
+        target="wl_hidden_frame"
+      >
+        <input type="email" name="EMAIL" id="wlEmail" placeholder="Your email" required autocomplete="email" />
+        <button type="submit" id="wlBtn">Join the waitlist →</button>
       </form>
       <p class="waitlist-note">No spam. Unsubscribe anytime.</p>
     </section>
@@ -185,7 +577,7 @@
     <section id="launch" class="launch">
       <h2>Launch</h2>
       <div class="launch-card">
-        <p class="launch-date">March 22, 2026</p>
+        <p class="launch-date">March 29, 2026</p>
         <p class="launch-phrase">First Spark Ignites — 08:00 UTC</p>
       </div>
     </section>
@@ -221,9 +613,9 @@
     <section class="social">
       <h2>Follow us</h2>
       <div class="social-links">
-        <a href="https://www.instagram.com/sobersteps2026/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
-        <a href="https://x.com/SoberStepsApp" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">X</a>
-        <a href="https://www.linkedin.com/in/patryk-topolski-6674483b4/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
+        <a href="https://www.instagram.com/sobersteps2026/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://x.com/SoberStepsApp" target="_blank" rel="noopener noreferrer">X</a>
+        <a href="https://www.linkedin.com/in/patryk-topolski-6674483b4/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
     </section>
   </main>
@@ -232,5 +624,67 @@
     <p class="disclaimer">SoberSteps is an app supporting people in the process of overcoming addictions and returning to themselves. It is not a medical, therapeutic or crisis app. It does not replace the help of a doctor, psychologist or psychiatrist.</p>
     <p>© 2026 SoberSteps. Built for recovery.</p>
   </footer>
+
+  <script>
+    (function () {
+      var form    = document.getElementById('wlForm');
+      var btn     = document.getElementById('wlBtn');
+      var frame   = document.getElementById('wlFrame');
+      var overlay = document.getElementById('wlOverlay');
+      var modal   = document.getElementById('wlModal');
+      var icon    = document.getElementById('wlIcon');
+      var title   = document.getElementById('wlTitle');
+      var msg     = document.getElementById('wlMsg');
+      var close   = document.getElementById('wlClose');
+
+      function showModal(success) {
+        if (success) {
+          modal.classList.remove('error');
+          icon.textContent  = '✅';
+          title.textContent = "You're on the list.";
+          msg.textContent   = "We'll reach out on March 29. No spam — ever.";
+        } else {
+          modal.classList.add('error');
+          icon.textContent  = '❌';
+          title.textContent = 'Something went wrong.';
+          msg.textContent   = 'Please try again or email us at sobersteps@pm.me';
+        }
+        overlay.classList.add('active');
+        close.focus();
+      }
+
+      function hideModal() {
+        overlay.classList.remove('active');
+        btn.textContent = 'Join the waitlist →';
+        btn.classList.remove('loading');
+        document.getElementById('wlEmail').value = '';
+      }
+
+      form.addEventListener('submit', function () {
+        btn.classList.add('loading');
+        btn.textContent = 'Sending…';
+
+        var timeout = setTimeout(function () {
+          showModal(false);
+        }, 8000);
+
+        frame.onload = function () {
+          clearTimeout(timeout);
+          showModal(true);
+        };
+      });
+
+      close.addEventListener('click', hideModal);
+
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) hideModal();
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && overlay.classList.contains('active')) hideModal();
+      });
+    })();
+  </script>
+
 </body>
 </html>
