@@ -104,13 +104,13 @@ body {
   font-size: 0.95rem;
 }
 
-.philosophy-section, .patryk-ai {
+.philosophy-section, .patryk-ai, .about-creator {
   padding: 4rem 2rem;
   max-width: 720px;
   margin: 0 auto;
 }
 
-.philosophy-section h2, .patryk-ai h2 {
+.philosophy-section h2, .patryk-ai h2, .about-creator h2 {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.5rem;
   text-align: center;
@@ -123,6 +123,10 @@ body {
 .phil-card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
 .phil-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
 .patryk-ai p { color: var(--muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem; }
+
+.about-lead { text-align: center; color: var(--accent-light); margin-bottom: 1.5rem; }
+.about-body p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem; }
+.about-body .philosophy { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; }
 
 .features {
   padding: 4rem 2rem;
